@@ -69,22 +69,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Esc  | Ins  | Pscr | Menu |      |      |                    |      | PWrd |  Up  | NWrd | DLine| Bspc |
+ * | Esc  |      |      |      |      |      |                    | PGup | Caps |      |      |      | Bspc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  | LAt  | LCtl |LShift|      | Caps |-------.    ,-------|      | Left | Down | Rigth|  Del | Bspc |
+ * | Tab  |      |      |      |      |      |-------.    ,-------| Left | Down | Up   | Rigth|      |      |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * |Shift | Undo |  Cut | Copy | Paste|      |-------|    |-------|      | LStr |      | LEnd |      | Shift|
+ * |Shift |      |      |      |      |      |-------|    |-------|PGdown|      |      |      |      | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | OSM  | OSL   | OSM  | LGui| /LCtL_T /       \ RCtl \  | RGui| OSM  | OSL   | OSM  |
  *            | LCtr | RAISE | LAlt |     |  ENTER /         \SPACE \ |     | RAlt | LOWER | RCtl |
  *            `-----------------------------------'           '-----------------------------------'
  */
 [_RAISE] = LAYOUT( \
-  _______, _______ , _______ , _______ , _______ , _______,                         _______, _______, _______,  _______ ,  _______ ,_______, \
-  _______, KC_INS,  KC_PSCR, KC_APP,  XXXXXXX,  XXXXXXX,                          KC_PGUP, KC_PRVWD, KC_UP,   KC_NXTWD, KC_DLINE, KC_BSPC, \
-  _______, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,  KC_CAPS,                          KC_PGDN, KC_LEFT,  KC_DOWN, KC_RGHT,  KC_DEL,   KC_BSPC, \
-  _______, KC_UNDO, KC_CUT,  KC_COPY, KC_PASTE, XXXXXXX, _______,        _______, XXXXXXX, KC_LSTRT, XXXXXXX, KC_LEND,  XXXXXXX,  _______, \
-                    _______, _______, _______,  _______, _______,        _______, _______, _______,  _______, _______ \
+  _______, _______ , _______ , _______ , _______ , _______,                      _______,   _______, _______, _______, _______, _______, \
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                          KC_PGUP,   KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                          KC_LEFT,   KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX, \
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,        _______, KC_PGDOWN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+                    _______, _______, _______, _______, _______,        _______, _______, _______,  _______, _______ \
 )
 };
 
