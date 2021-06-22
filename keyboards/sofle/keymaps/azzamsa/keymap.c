@@ -5,14 +5,12 @@ enum sofle_layers {
     _QWERTY,
     _LOWER,
     _RAISE,
-    _ADJUST,
 };
 
 enum custom_keycodes {
     KC_QWERTY = SAFE_RANGE,
     KC_LOWER,
     KC_RAISE,
-    KC_ADJUST,
     KC_PRVWD,
     KC_NXTWD,
     KC_LSTRT,
@@ -87,29 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX, KC_CAPS,                             KC_PGDN,  KC_LEFT, KC_DOWN, KC_RGHT,  KC_DEL,   KC_BSPC, \
   _______, KC_UNDO, KC_CUT,  KC_COPY, KC_PASTE, XXXXXXX,  _______,        _______,  XXXXXXX, KC_LSTRT, XXXXXXX, KC_LEND,  XXXXXXX,  _______, \
                          _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______ \
-),
-
-/* ADJUST
- * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | RESET|      |QWERTY|      |      |      |                    |      |      |      |      |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |MACWIN|      |      |      |-------.    ,-------|      | VOLDO| MUTE | VOLUP|      |      |
- * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|      | PREV | PLAY | NEXT |      |      |
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | OSM  | OSL   | OSM  | LGui| /LCtL_T /       \ RCtl \  | RGui| OSM  | OSL   | OSM  |
- *            | LCtr | RAISE | LAlt |     |  ENTER /         \SPACE \ |     | RAlt | LOWER | RCtl |
- *            `-----------------------------------'           '-----------------------------------'
- */
-  [_ADJUST] = LAYOUT( \
-  XXXXXXX , XXXXXXX,  XXXXXXX ,  XXXXXXX , XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-  RESET  , XXXXXXX,KC_QWERTY, XXXXXXX,CG_TOGG,XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-  XXXXXXX , XXXXXXX,CG_TOGG, XXXXXXX,    XXXXXXX,  XXXXXXX,                       XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX, \
-  XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX,  XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX, \
-                   _______, _______, _______, _______, _______,           _______, _______, _______, _______, _______ \
-  )
+)
 };
 
 #ifdef ENCODER_ENABLE
