@@ -12,5 +12,5 @@ for more options.
     #define TAPPING_TERM 200 // tapping timeout (in ms)
 #endif
 
-#define ONESHOT_TAP_TOGGLE 2  // Tapping N times holds the key until tapped once again. doesn't work!
+#define ONESHOT_TAP_TOGGLE 3  // Tapping N times holds the key until tapped once again. doesn't work!
 //#define ONESHOT_TIMEOUT 200  // Time (in ms) before the one shot key is released
