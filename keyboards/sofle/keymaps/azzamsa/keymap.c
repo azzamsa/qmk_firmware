@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Tab  |      |      |      |      |      |-------.    ,-------| Left | Down | Up   | Rigth|      |      |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * |Shift |      |      |      |      |      |-------|    |-------|PGdown|      |      |      |      | Shift|
+ * |Shift |      |      |      |      |      |-------|    |-------|PGdown| App  |      |      |      | Shift|
  * `-----------------------------------------/      /      \      \-----------------------------------------'
  *               | OSL  | OSM  | OSM  |ENTER| OSM  /        \ OSM  |SPACE| OSM  | OSM  | OSL  |
  *               | RAISE| LCtr | LAlt |     | LGui/          \RGui |     | RAlt | RCtr | LOWER|
@@ -83,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                            KC_F6,     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  \
   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                            KC_PGUP,   KC_CAPS, KC_NO,   KC_NO,   KC_NO,   KC_TRNS,  \
   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                            KC_LEFT,   KC_DOWN, KC_UP,   KC_RGHT, KC_NO,   KC_NO,     \
-  KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS,        KC_TRNS, KC_PGDOWN, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS,    \
+  KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS,        KC_TRNS, KC_PGDOWN, KC_APP,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS,    \
            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,        KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS \
 )
 };
