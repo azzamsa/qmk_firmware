@@ -30,17 +30,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Tab  |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RShift|
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | OSM  | OSL   | OSM  | LGui| /LCtL_T /       \ RCtl \  | RGui| OSM  | OSL   | OSM  |
- *            | LCtr | RAISE | LAlt |     |  ENTER /         \SPACE \ |     | RAlt | LOWER | RCtl |
- *            `-----------------------------------'           '-----------------------------------'
+ * `-----------------------------------------/      /      \      \-----------------------------------------'
+ *            | OSL   | OSM  | OSM  |ENTER| / OSM  /        \ OSM  \  |SPACE| OSM  | OSM  | OSL   |
+ *            | RAISE | LCtr | LAlt |     |/  LGui/          \RGui  \ |     | RAlt | RCtr | LOWER |
+ *            `-----------------------------------'          '-----------------------------------'
  */
 [_QWERTY] = LAYOUT( \
-  KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_MINS, \
+  KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_MINS,\
   KC_ESC,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_BSPC, \
   KC_TAB,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                                    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_QUOT,  \
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_MUTE,                  XXXXXXX, KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_RSFT,   \
-  OSM(MOD_LCTL), OSL(_RAISE), OSM(MOD_LALT), LCTL_T(KC_ENT), OSM(MOD_LGUI),    OSM(MOD_RGUI), RCTL_T(KC_SPC), OSM(MOD_RALT), OSL(_LOWER), OSM(MOD_RCTL) \
+  OSL(_RAISE), OSM(MOD_LCTL), OSM(MOD_LALT), KC_ENT, OSM(MOD_LGUI),            OSM(MOD_RGUI), KC_SPC, OSM(MOD_RALT), OSM(MOD_RCTL), OSL(_LOWER)\
 ),
 
 /* LOWER
@@ -53,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|  =   |  -   |  +   |   {  |   }  |-------|    |-------|   [  |   ]  |   ;  |   :  |   \  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | OSM  | OSL   | OSM  | LGui| /LCtL_T /       \ RCtl \  | RGui| OSM  | OSL   | OSM  |
- *            | LCtr | RAISE | LAlt |     |  ENTER /         \SPACE \ |     | RAlt | LOWER | RCtl |
- *            `-----------------------------------'           '-----------------------------------'
+ *            | OSL   | OSM  | OSM  |ENTER| / OSM  /        \ OSM  \  |SPACE| OSM  | OSM  | OSL   |
+ *            | RAISE | LCtr | LAlt |     |/  LGui/          \RGui  \ |     | RAlt | RCtr | LOWER |
+ *            `-----------------------------------'          '-----------------------------------'
  */
 [_LOWER] = LAYOUT( \
   _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                            KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11, \
@@ -74,10 +74,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Tab  |      |      |      |      |      |-------.    ,-------| Left | Down | Up   | Rigth|      |      |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * |Shift |      |      |      |      |      |-------|    |-------|PGdown|      |      |      |      | Shift|
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | OSM  | OSL   | OSM  | LGui| /LCtL_T /       \ RCtl \  | RGui| OSM  | OSL   | OSM  |
- *            | LCtr | RAISE | LAlt |     |  ENTER /         \SPACE \ |     | RAlt | LOWER | RCtl |
- *            `-----------------------------------'           '-----------------------------------'
+ * `-----------------------------------------/      /      \      \-----------------------------------------'
+ *            | OSL   | OSM  | OSM  |ENTER| / OSM  /        \ OSM  \  |SPACE| OSM  | OSM  | OSL   |
+ *            | RAISE | LCtr | LAlt |     |/  LGui/          \RGui  \ |     | RAlt | RCtr | LOWER |
+ *            `-----------------------------------'          '-----------------------------------'
  */
 [_RAISE] = LAYOUT( \
   _______, _______ , _______ , _______ , _______ , _______,                      _______,   _______, _______, _______, _______, _______, \
