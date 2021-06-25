@@ -108,3 +108,26 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 }
 
 #endif
+
+void keyboard_pre_init_user(void){
+  // need to set the pin output at startup
+  // otherwise the layer state won't work after power off
+    setPinOutput(D5);
+    setPinOutput(B0);
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+  // D5: left LED, B0: right LED
+    if (layer_state_cmp(state, _QWERTY)){
+        writePinHigh(D5);
+        writePinHigh(B0);
+    } else if (layer_state_cmp(state, _LOWER)) {
+        writePinLow(D5);
+        writePinHigh(B0);
+    }
+    else if (layer_state_cmp(state, _RAISE)){
+        writePinLow(D5);
+        writePinLow(B0);
+    }
+    return state;
+}
