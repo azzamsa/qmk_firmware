@@ -5,6 +5,7 @@ enum sofle_layers {
     _QWERTY,
     _LOWER,
     _RAISE,
+    _ADJUST,
 };
 
 enum custom_keycodes {
@@ -52,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Tab  |   _  |   +  |   {  |   }  |   |  |-------.    ,-------|      |      |      |      |      |      |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|   =  |   -  |   [  |   ]  |   \  |-------|    |-------|      |      |      |      |      | Shift|
- * `-----------------------------------------/       /     \      \-----------------------------------------'
+ * `-----------------------------------------/      /      \      \-----------------------------------------'
  *               | OSL  | OSM  | OSM  |ENTER| OSM  /        \ OSM  |SPACE| OSM  | OSM  | OSL  |
  *               | RAISE| LCtr | LAlt |     | LGui/          \RGui |     | RAlt | RCtr | LOWER|
  *               `-------------------------------'            '-------------------------------'
@@ -75,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * |Shift |      |      |      |      |      |-------|    |-------|PGdown| App  |      |      |      | Shift|
  * `-----------------------------------------/      /      \      \-----------------------------------------'
- *               | OSL  | OSM  | OSM  |ENTER| OSM  /        \ OSM  |SPACE| OSM  | OSM  | OSL  |
+ *               |   TO | OSM  | OSM  |ENTER| OSM  /        \ OSM  |SPACE| OSM  | OSM  | OSL  |
  *               | RAISE| LCtr | LAlt |     | LGui/          \RGui |     | RAlt | RCtr | LOWER|
  *               `-------------------------------'            '-------------------------------'
  */
@@ -83,8 +84,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                            KC_F6,     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  \
   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                            KC_PGUP,   KC_CAPS, KC_NO,   KC_NO,   KC_NO,   KC_TRNS,  \
   KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                            KC_LEFT,   KC_DOWN, KC_UP,   KC_RGHT, KC_NO,   KC_DEL,    \
-  KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS,        KC_TRNS, KC_PGDOWN, KC_APP,   KC_NO,   KC_NO,   KC_NO,  KC_TRNS,    \
-           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,        KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS \
+  KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS,        KC_TRNS, KC_PGDOWN, KC_APP,  KC_NO,   KC_NO,   KC_NO,  KC_TRNS,    \
+                TO(_ADJUST), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,        KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS \
+),
+/* ADJUST
+ * ,-----------------------------------------.                    ,-----------------------------------------.
+ * |      |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | F11  |
+ * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+ * | Esc  |      |      |      |      |      |                    | BTN1 | BTN2 |      |      |      | Bspc |
+ * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+ * | Tab  |      |      |      |      |      |-------.    ,-------| MS_L | MS_D | MS_U | MS_R |      |      |
+ * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
+ * |Shift |      |      |      |      |      |-------|    |-------|      |      |      |      |      | Shift|
+ * `-----------------------------------------/      /      \      \-----------------------------------------'
+ *               | OSL  | OSM  | OSM  |ENTER| OSM  /        \ OSM  |SPACE| OSM  | OSM  | TO   |
+ *               | RAISE| LCtr | LAlt |     | LGui/          \RGui |     | RAlt | RCtr | LOWER|
+ *               `-------------------------------'            '-------------------------------'
+ */
+[_ADJUST] = LAYOUT( \
+  KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                            KC_F6,     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  \
+  KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                            KC_BTN1,   KC_BTN2, KC_NO,   KC_NO,   KC_NO,   KC_TRNS,  \
+  KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                            KC_MS_L,   KC_MS_D, KC_MS_U, KC_MS_R, KC_NO,   KC_DEL,    \
+  KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS,        KC_TRNS, KC_NO,     KC_NO,   KC_WH_D, KC_NO,   KC_NO,   KC_TRNS,    \
+                    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,        KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS, TO(_QWERTY) \
 )
 };
 
@@ -118,14 +140,19 @@ void keyboard_pre_init_user(void){
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   // D5: left LED, B0: right LED
+    // High: off, Low: on
     if (layer_state_cmp(state, _QWERTY)){
         writePinHigh(D5);
         writePinHigh(B0);
     } else if (layer_state_cmp(state, _LOWER)) {
+        writePinHigh(D5);
+        writePinLow(B0);
+    }
+    else if (layer_state_cmp(state, _RAISE)){
         writePinLow(D5);
         writePinHigh(B0);
     }
-    else if (layer_state_cmp(state, _RAISE)){
+    else if (layer_state_cmp(state, _ADJUST)){
         writePinLow(D5);
         writePinLow(B0);
     }
