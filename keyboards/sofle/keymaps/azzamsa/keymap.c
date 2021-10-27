@@ -128,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT( \
   KC_GRV,  KC_1,    KC_2,        KC_3,         KC_4,    KC_5,                             KC_6,      KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, \
-  KC_TRNS, KC_NO,   DF(_QWERTY), DF(_COLEMAK), KC_NO,   KC_NO,                            KC_BTN1,   KC_BTN2, KC_WH_U, KC_NO,   KC_NO,   KC_TRNS,  \
+  KC_TRNS, KC_NO,   KC_QWERTY,   KC_COLEMAK,   KC_NO,   KC_NO,                            KC_BTN1,   KC_BTN2, KC_WH_U, KC_NO,   KC_NO,   KC_TRNS,  \
   KC_TRNS, KC_ACL0, KC_ACL1,     KC_ACL2,      KC_NO,   KC_NO,                            KC_MS_L,   KC_MS_D, KC_MS_U, KC_MS_R, KC_NO,   KC_DEL,    \
   KC_TRNS, KC_NO,   KC_NO,       KC_NO,        KC_NO,   KC_NO,   KC_TRNS,        KC_TRNS, KC_NO,     KC_NO,   KC_WH_D, KC_NO,   KC_NO,   KC_TRNS,    \
                     KC_TRNS,     KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS,        KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS, TO(_QWERTY) \
@@ -182,4 +182,21 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         writePinLow(B0);
     }
     return state;
+}
+
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case KC_QWERTY:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY);
+            }
+            return false;
+        case KC_COLEMAK:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_COLEMAK);
+            }
+            return false;
+    }
+    return true;
 }
