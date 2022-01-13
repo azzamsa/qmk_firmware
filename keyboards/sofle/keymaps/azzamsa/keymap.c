@@ -116,13 +116,16 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     // D5: left LED, B0: right LED
     // High: off, Low: on
     if (layer_state_cmp(state, _QW)){
+        // off off
         writePinHigh(D5);
         writePinHigh(B0);
     } else if (layer_state_cmp(state, _L1)) {
+        // off on
         writePinHigh(D5);
         writePinLow(B0);
     }
     else if (layer_state_cmp(state, _L2)){
+        // on off
         writePinLow(D5);
         writePinHigh(B0);
     }
